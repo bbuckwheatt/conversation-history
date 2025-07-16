@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1>🤖 AI Chatbot Portal</h1>
+                <p>Welcome back, <span id="userDisplay">User</span>!</p>
+            </div>
+            <div class="header-right">
+                <button id="logoutBtn" class="logout-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </header>
+
+        <main class="dashboard-main">
+            <div class="chatbot-container">
+                <div class="chatbot-header">
+                    <h2>AI Assistant</h2>
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Online</span>
+                    </div>
+                </div>
+                
+                <div class="chatbot-area" id="chatbotArea">
+                    <div id="customgpt_chat"></div>
+                    <script>
+                        // Set external_id to the username from localStorage before loading embed.js
+                        (function() {
+                            var username = localStorage.getItem('username') || 'User';
+                            var script = document.createElement('script');
+                            script.src = 'https://cdn.customgpt.ai/js/embed.js';
+                            script.defer = true;
+                            script.setAttribute('div_id', 'customgpt_chat');
+                            script.setAttribute('p_id', '75111');
+                            script.setAttribute('p_key', '0d24c6dc841b6a5b228dac46865b0a8e');
+                            script.setAttribute('external_id', username);
+                            document.body.appendChild(script);
+                        })();
+                    </script>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Quick Info</h3>
+                    <div class="info-item">
+                        <span class="info-label">Username:</span>
+                        <span class="info-value" id="sidebarUsername">User</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Session:</span>
+                        <span class="info-value">Active</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Status:</span>
+                        <span class="info-value">Ready</span>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Instructions</h3>
+                    <p>Replace the content in the chatbot area with your AI chatbot code. The username is stored in localStorage and can be accessed by your chatbot.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script defer src="https://cdn.customgpt.ai/js/chat.js"></script> <script defer> (function(){ function init(){ CustomGPT.init({ p_id:'70940', p_key:'8d6a99ffbe09b461b32a48c2aacacbee' }) } document.readyState === 'complete' ? init() : window.addEventListener('load', init); })(); </script> 
+    <script src="dashboard.js"></script>
+</body>
+</html> 
