@@ -47,6 +47,7 @@
                             script.setAttribute('p_id', '75111');
                             script.setAttribute('p_key', '0d24c6dc841b6a5b228dac46865b0a8e');
                             script.setAttribute('external_id', username);
+                            script.setAttribute('prompt', 'Hi I am ' + username + ' and I would love to learn more about CustomGPT');
                             document.body.appendChild(script);
                         })();
                     </script>
@@ -77,7 +78,21 @@
             </div>
         </main>
     </div>
-    <script defer src="https://cdn.customgpt.ai/js/chat.js"></script> <script defer> (function(){ function init(){ CustomGPT.init({ p_id:'70940', p_key:'8d6a99ffbe09b461b32a48c2aacacbee' }) } document.readyState === 'complete' ? init() : window.addEventListener('load', init); })(); </script> 
+    <script defer src="https://cdn.customgpt.ai/js/chat.js"></script>
+    <script defer>
+        (function(){
+            function init(){
+                // Only initialize on the dashboard page (check for chatbotArea)
+                if (document.getElementById('chatbotArea')) {
+                    CustomGPT.init({
+                        p_id:'70940',
+                        p_key:'8d6a99ffbe09b461b32a48c2aacacbee'
+                    });
+                }
+            }
+            document.readyState === 'complete' ? init() : window.addEventListener('load', init);
+        })();
+    </script> 
     <script src="dashboard.js"></script>
 </body>
 </html> 

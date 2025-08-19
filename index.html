@@ -50,5 +50,20 @@
     </div>
 
     <script src="script.js"></script>
+    <script defer src="https://cdn.customgpt.ai/js/chat.js"></script>
+    <script defer>
+        (function(){
+            function init(){
+                // Only initialize on the login page (check for loginForm)
+                if (document.getElementById('loginForm')) {
+                    CustomGPT.init({
+                        p_id:'77811',
+                        p_key:'af28a7a93c6e958e50e89db12e2635c7'
+                    });
+                }
+            }
+            document.readyState === 'complete' ? init() : window.addEventListener('load', init);
+        })();
+    </script>
 </body>
 </html> 
